@@ -1,0 +1,55 @@
+@import './variables';
+
+@mixin ellipsis($line: 1) {
+  overflow: hidden;
+  @if ($line == '1') {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@mixin font($size, $weight, $color, $height: 1) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  line-height: $height;
+}
+
+@mixin flex($direction: row, $justify: flex-start, $align: flex-start) {
+  display: flex;
+  @if $direction == row {
+    flex-direction: row;
+  } @else if $direction == row-reverse {
+    flex-direction: row-reverse;
+  } @else if $direction == column {
+    flex-direction: column;
+  } @else if $direction == column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  @if $justify == flex-start {
+    justify-content: flex-start;
+  } @else if $justify == flex-end {
+    justify-content: flex-end;
+  } @else if $justify == center {
+    justify-content: center;
+  } @else if $justify == space-between {
+    justify-content: space-between;
+  }
+
+  @if $align == flex-start {
+    align-items: flex-start;
+  } @else if $align == flex-end {
+    align-items: flex-end;
+  } @else if $align == center {
+    align-items: center;
+  }
+}
+
+@mixin image($path, $name, $size: contain) {
+  background: url('../../assets/images/$path/$name') no-repeat center / $size;
+}
