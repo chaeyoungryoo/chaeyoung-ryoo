@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import useThemeStore from "../store/useThemeStore";
+import { useState } from "react";
 import "../styles/style.scss";
 
 // 스타일 적용된 버튼 생성
@@ -9,13 +9,15 @@ const ToggleButton = styled.button`
   padding: 10px 20px;
   border: 1px solid black;
   border-radius: 5px;
-  transition: background 0.3s, color 0.3s;
 `;
 
 const ThemeToggle = () => {
-  const { theme, toggleTheme } = useThemeStore();
+  const [theme, setTheme] = useState("light");
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
 
-  console.log("현재 테마 상태:", theme); // 테마 상태 확인
+  console.log("현재 테마 상태:", theme);
 
   return (
     <ToggleButton
