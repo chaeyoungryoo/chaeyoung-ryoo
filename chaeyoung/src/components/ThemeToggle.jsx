@@ -4,17 +4,12 @@ import "../styles/style.scss";
 
 // 스타일 적용된 버튼 생성
 const ToggleButton = styled.button`
-  background: ${(props) => (props.darkMode ? "#222" : "#fff")};
-  color: ${(props) => (props.darkMode ? "#fff" : "#000")};
+  background: ${({ theme }) => (theme === "dark" ? "#fff" : "#000")};
+  color: ${({ theme }) => (theme === "dark" ? "#000" : "#fff")};
   padding: 10px 20px;
-  border: none;
+  border: 1px solid black;
   border-radius: 5px;
-  cursor: pointer;
   transition: background 0.3s, color 0.3s;
-
-  &:hover {
-    background: ${(props) => (props.theme.darkMode ? "#444" : "#ddd")};
-  }
 `;
 
 const ThemeToggle = () => {
@@ -23,9 +18,14 @@ const ThemeToggle = () => {
   console.log("현재 테마 상태:", theme); // 테마 상태 확인
 
   return (
-    <button onClick={toggleTheme}>
+    <ToggleButton
+      theme={theme}
+      type="button"
+      className="btn-theme"
+      onClick={toggleTheme}
+    >
       {theme === "light" ? "🌙 다크 모드" : "☀️ 라이트 모드"}
-    </button>
+    </ToggleButton>
   );
 };
 
