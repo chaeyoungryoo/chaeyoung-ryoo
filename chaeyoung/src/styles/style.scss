@@ -1,4 +1,11 @@
-@use "variables";
-@use "mixins";
-@use "fonts";
-@use "common";
+@use "base/reset";
+@use "base/common";
+@use "base/fonts";
+
+@use "utils/functions";
+@use "utils/mixins";
+@use "utils/variables";
+
+@use "components/header";
+
+@use "pages/home";

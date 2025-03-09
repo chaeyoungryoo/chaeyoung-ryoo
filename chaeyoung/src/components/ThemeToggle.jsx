@@ -20,14 +20,16 @@ const ThemeToggle = () => {
   console.log("현재 테마 상태:", theme);
 
   return (
-    <ToggleButton
-      theme={theme}
-      type="button"
-      className="btn-theme"
-      onClick={toggleTheme}
-    >
-      {theme === "light" ? "🌙 다크 모드" : "☀️ 라이트 모드"}
-    </ToggleButton>
+    <div className="theme-button-box">
+      <ToggleButton
+        theme={theme}
+        type="button"
+        className="btn-theme"
+        onClick={toggleTheme}
+      >
+        {theme === "light" ? "🌙 다크 모드" : "☀️ 라이트 모드"}
+      </ToggleButton>
+    </div>
   );
 };
 
